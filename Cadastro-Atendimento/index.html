@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Atendimento</title>
+
+</head>
+<body>
+
+
+    <div class="container">
+        <h1>Cadastro de Atendimento</h1>
+        <form action="/submit" method="post">
+            <label for="pet-search">Selecionar Pet:</label>
+            <input type="text" id="pet-search" name="pet-search" placeholder="Digite o nome do pet..." list="pet-list" required>
+            <datalist id="pet-list">
+                <option value="Bella">
+                <option value="Max">
+                <option value="Luna"> 
+                <option value="Charlie">
+                <option value="Simba">
+            </datalist>
+            <br>
+            <br>
+            <br>
+
+
+            <label for="service">Serviços:</label>
+            <br>
+            <br>
+            <br>
+
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="services" value="banho"> Banho</label>
+                <label><input type="checkbox" name="services" value="tosa"> Tosa</label>
+                <label><input type="checkbox" name="services" value="Tosa Higiênica"> Tosa Higiênica</label>
+                <label><input type="checkbox" name="services" value="Cortar Unha"> Cortar Unha</label>
+                <br>
+                <br>
+                <br>
+
+                <label for="perfume">Passa perfume?</label>
+                <br>
+                <br>
+
+                <label><input type="checkbox" name="sim" value="Sim"> Sim</label>
+                <label><input type="checkbox" name="não" value="Não">Não</label>
+
+                <br>
+                <br>
+                <br>
+
+
+            <input type="submit" value="Marcar Atendimento">
+
+
+            <p>O pet ainda não está no sistema?</p>
+            <p>Cadastre ele aqui</p>
+        </form>
+    </div>
+</body>
+</html>
