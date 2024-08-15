@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/Home/styles.css">
     <link rel="shortcut icon" href="/svg/dog.svg" type="image/x-icon">
-    <title>Ada Petshop</title>
+    <title>Ada Petshop</title> 
 </head>
 <body>
     <header>
         <nav>
             <div class="logo">
                 <a href="#">
-                    <img src="/svg/dog.svg" alt="">
+                    <img src="/svg/dog.svg" alt="Logo Ada Petshop">
                 </a>
                 <p>Ada Petshop</p>
             </div>
@@ -24,50 +24,50 @@
         </nav>
     </header>
     <main>
-        <aside>
+        <form>
             <section class="section-esquerda">
-                <label for="Nome do Pet">Nome do Pet</label>
-                <input id="" placeholder="" type="text">
-                <label for="Nome do Pet">Raça do Pet</label>
-                <select name="" id="">
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
+                <label for="nomePet">Nome do Pet</label>
+                <input id="nomePet" name="nomePet" type="text" placeholder="Nome do Pet" required>
+                
+                <label for="racaPet">Raça do Pet</label>
+                <select id="racaPet" name="racaPet">
+                    <option value="" disabled selected hidden>Selecione a raça do Pet</option>
+                    <option value="opcao1">Opção 1</option>
+                    <option value="opcao2">Opção 2</option>
+                    <option value="opcao3">Opção 3</option>
                 </select>
-                <label for="Nome do Pet">Data de nacimento do Pet</label>
-                <input id="" placeholder="" type="date">
-                <label for="Nome do Pet">Apelido do Pet</label>
-                <input type="text">
-                <label for="portepet">Porte do Pet</label>
-                <select id="portepet" name="portepet" placeholder="Selecione o porte do Pet">
-                    <option disabled selected value="">Selecione o porte do Pet</option>
+                
+                <label for="dataNascimentoPet">Data de nascimento do Pet</label>
+                <input id="dataNascimentoPet" name="dataNascimentoPet" type="date">
+                
+                <label for="apelidoPet">Apelido do Pet</label>
+                <input id="apelidoPet" name="apelidoPet" type="text">
+                
+                <label for="portePet">Porte do Pet</label>
+                <select id="portePet" name="portePet">
+                    <option value="" disabled selected hidden>Selecione o porte do Pet</option>
                     <option value="Pequeno">Pequeno</option>
                     <option value="Médio">Médio</option>
                     <option value="Grande">Grande</option>
                 </select>
                 
-                <label for="Nome do Pet">Pelagem do Pet</label>
-                <select name="" id="">
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
+                <label for="pelagemPet">Pelagem do Pet</label>
+                <select id="pelagemPet" name="pelagemPet">
+                    <option value="" disabled selected hidden>Selecione a pelagem do Pet</option>
+                    <option value="opcao1">Opção 1</option>
+                    <option value="opcao2">Opção 2</option>
+                    <option value="opcao3">Opção 3</option>
                 </select>
-                
             </section>
             <section class="section-direita">
-                <input type="text">
-                <input type="text">
-                
-                <textarea style="width: 273px; height: 247px;" name="" id=""></textarea>
+                <input type="text" name="campo1" placeholder="Campo 1">
+                <input type="text" name="campo2" placeholder="Campo 2">
+                <textarea name="observacoes" id="observacoes" placeholder="Observações"></textarea>
             </section>
-        </aside>
+        </form>
     </main>
     <footer>
-
+        <!-- rodapé  -->
     </footer>
 </body>
 </html>
