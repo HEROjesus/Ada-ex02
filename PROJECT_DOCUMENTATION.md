@@ -43,7 +43,7 @@ Para garantir a consistência visual e a identidade da marca, utilizamos as segu
     └── README.md
 ```
 
-- **/assets**: Contém imagens, estilos (CSS) e scripts JavaScript.
+- **/assets**: Contém imagens e estilos (CSS).
 - **/pages**: Páginas da aplicação, cada uma representando uma seção específica do site.
 - **/utils**: Scripts JavaScript utilitários usados em todo o projeto.
 
