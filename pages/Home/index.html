@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="/assets/svg/dog.svg" type="image/x-icon">
+    <title>Ada Petshop</title> 
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="#">
+                    <img src="/assets/svg/dog.svg" alt="Logo Ada Petshop">
+                </a>
+                <p>Ada Petshop</p>
+            </div>
+            <ul>
+                <li><a href="#">Cadastrar</a></li>
+                <li><a href="#">Atendimento</a></li>
+                <li><a href="#">Listagem</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <form>
+            <section class="section-esquerda">
+                <label for="nomePet">Nome do Pet</label>
+                <input id="nomePet" name="nomePet" type="text" placeholder="Nome do Pet" required>
+                
+                <label for="racaPet">Raça do Pet</label>
+                <select id="racaPet" name="racaPet">
+                    <option value="" disabled selected hidden>Selecione a raça do Pet</option>
+                    <option value="opcao1">Opção 1</option>
+                    <option value="opcao2">Opção 2</option>
+                    <option value="opcao3">Opção 3</option>
+                </select>
+                
+                <label for="dataNascimentoPet">Data de nascimento do Pet</label>
+                <input id="dataNascimentoPet" name="dataNascimentoPet" type="date">
+                
+                <label for="apelidoPet">Apelido do Pet</label>
+                <input id="apelidoPet" name="apelidoPet" type="text">
+                
+                <label for="portePet">Porte do Pet</label>
+                <select id="portePet" name="portePet">
+                    <option value="" disabled selected hidden>Selecione o porte do Pet</option>
+                    <option value="Pequeno">Pequeno</option>
+                    <option value="Médio">Médio</option>
+                    <option value="Grande">Grande</option>
+                </select>
+                
+                <label for="pelagemPet">Pelagem do Pet</label>
+                <select id="pelagemPet" name="pelagemPet">
+                    <option value="" disabled selected hidden>Selecione a pelagem do Pet</option>
+                    <option value="opcao1">Opção 1</option>
+                    <option value="opcao2">Opção 2</option>
+                    <option value="opcao3">Opção 3</option>
+                </select>
+            </section>
+            <section class="section-direita">
+                <input type="text" name="campo1" placeholder="Campo 1">
+                <input type="text" name="campo2" placeholder="Campo 2">
+                <textarea name="observacoes" id="observacoes" placeholder="Observações"></textarea>
+            </section>
+            <button>Enviar</button>
+        </form>
+    </main>
+    <footer>
+        <!-- rodapé aqui --> 
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
