@@ -1,3 +1,9 @@
+:root {
+    --title-color-primary: #8DC8B2;
+    --title-color-secundary: #63A68E;
+    --text-color-primary: #84BDA8;
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -9,25 +15,30 @@
     --bs-btn-border-color: #6c757d00;
     --bs-btn-font-size: 1.2rem;
     --bs-btn-font-weight: 500;
-  }
-  
-  #navegacao{
+}
+
+#navegacao {
     background-color: #8DC8B2;
-  }
-  
-  
-  .btn-check:checked+.btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active {
+}
+
+
+.btn-check:checked+.btn,
+.btn.active,
+.btn.show,
+.btn:first-child:active,
+:not(.btn-check)+.btn:active {
     color: var(--bs-btn-active-color);
     background-color: #4c866b;
     border-color: #4c866b;
-  }
-  .btn:hover {
+}
+
+.btn:hover {
     color: var(--bs-btn-hover-color);
     background-color: #4c866b;
     border-color: #4c866b;
-  }
-  
-  .dropdown-menu {
+}
+
+.dropdown-menu {
     --bs-dropdown-zindex: 1000;
     --bs-dropdown-min-width: 10rem;
     --bs-dropdown-padding-x: 0;
@@ -37,14 +48,14 @@
     --bs-dropdown-color: var(--bs-body-color);
     --bs-dropdown-bg: #4c866b;
     --bs-dropdown-link-hover-bg: #1b4532;
-  
-  }
-  
-  body {
-    background-color: #e8efec;
-  }
 
-  main {
+}
+
+body {
+    background-color: #e8efec;
+}
+
+main {
     margin-top: 20px;
     background-color: #fff;
     display: flex;
@@ -54,21 +65,60 @@
     max-width: 720px;
     padding: 20px;
     border-radius: 10px;
-  }
+}
 
-  article {
+article {
     background-color: #E6F8F1;
     border: none;
-  }
+}
 
-  @media (min-width: 1400px) {
-    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+h2 {
+    color: var(--title-color-primary);
+    font-weight: 550;
+}
+
+h3 {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--title-color-secundary);
+}
+
+p {
+    color: var(--text-color-primary);
+}
+
+li {
+    list-style: none;
+}
+
+.img-pet {
+    height: 8rem;
+    width: 8rem;
+}
+
+.img-edicao {
+    height: 2.2rem;
+    width: 2.2rem;
+}
+
+@media (min-width: 1400px) {
+
+    .container,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl,
+    .container-xxl {
         max-width: 710px;
     }
-  }
-  
-  @media (min-width: 992px) {
-    .container, .container-lg, .container-md, .container-sm {
+}
+
+@media (min-width: 992px) {
+
+    .container,
+    .container-lg,
+    .container-md,
+    .container-sm {
         max-width: 720px;
     }
-  }
+}
