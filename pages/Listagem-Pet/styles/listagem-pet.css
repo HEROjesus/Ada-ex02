@@ -23,7 +23,6 @@
     background-color: #8DC8B2;
 }
 
-
 .btn-check:checked+.btn,
 .btn.active,
 .btn.show,
@@ -111,7 +110,6 @@ li {
     font-weight: initial;
 }
 
-
 .img-pet {
     height: 7rem;
     width: 7rem;
@@ -121,6 +119,12 @@ li {
     height: 2.2rem;
     width: 2.2rem;
     cursor: pointer;
+}
+
+.more-info:hover {
+    background-color: rgba(#fff, #fff, #fff, 0.7);
+    font-size: 1.05rem;
+    transition: 0.3s ease-in-out;
 }
 
 @media (min-width: 87.5rem) {
