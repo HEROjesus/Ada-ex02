@@ -2,6 +2,8 @@
     --title-color-primary: #8DC8B2;
     --title-color-secundary: #63A68E;
     --text-color-primary: #84BDA8;
+    --info-background-color: #E6F8F1;
+    --moreinfo-background-color: #acd8c7;
 }
 
 * {
@@ -79,18 +81,36 @@ h3 {
     color: var(--title-color-secundary);
 }
 
-p {
-    color: var(--text-color-primary);
-}
-
 li {
     list-style: none;
 }
 
-.pet-list-item {
-    background-color: #E6F8F1;
-    border: none;
+.title-color-secundary {
+    color: var(--title-color-secundary);
 }
+
+.info-background-color {
+    background-color: var(--info-background-color);
+}
+
+.moreinfo-background-color {
+    background-color: var(--moreinfo-background-color);
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.pet-nome,
+.pet-raca,
+.pet-apelido,
+.pet-tutor,
+.pet-porte,
+.pet-idade,
+.pet-perfume {
+    font-weight: initial;
+}
+
 
 .img-pet {
     height: 7rem;
@@ -103,24 +123,30 @@ li {
     cursor: pointer;
 }
 
-@media (min-width: 1400px) {
+@media (min-width: 87.5rem) {
 
-    .container,
+    /* .container,
     .container-lg,
     .container-md,
     .container-sm,
     .container-xl,
     .container-xxl {
-        max-width: 710px;
-    }
+        max-width: 44.375rem;
+    } */
 }
 
-@media (min-width: 992px) {
+@media (min-width: 62rem) {
 
-    .container,
+    /* .container,
     .container-lg,
     .container-md,
     .container-sm {
-        max-width: 720px;
+        max-width: 45rem;
+    } */
+}
+
+@media (max-width: 74.95rem) {
+    .col {
+        flex: 1 1 calc(50% - 1rem);
     }
 }
