@@ -67,12 +67,8 @@ main {
     border-radius: 10px;
 }
 
-article {
-    background-color: #E6F8F1;
-    border: none;
-}
-
 h2 {
+    font-size: 1.5rem;
     color: var(--title-color-primary);
     font-weight: 550;
 }
@@ -91,14 +87,20 @@ li {
     list-style: none;
 }
 
+.pet-list-item {
+    background-color: #E6F8F1;
+    border: none;
+}
+
 .img-pet {
-    height: 8rem;
-    width: 8rem;
+    height: 7rem;
+    width: 7rem;
 }
 
 .img-edicao {
     height: 2.2rem;
     width: 2.2rem;
+    cursor: pointer;
 }
 
 @media (min-width: 1400px) {
