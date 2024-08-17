@@ -2,6 +2,8 @@
     --title-color-primary: #8DC8B2;
     --title-color-secundary: #63A68E;
     --text-color-primary: #84BDA8;
+    --info-background-color: #E6F8F1;
+    --moreinfo-background-color: #acd8c7;
 }
 
 * {
@@ -20,7 +22,6 @@
 #navegacao {
     background-color: #8DC8B2;
 }
-
 
 .btn-check:checked+.btn,
 .btn.active,
@@ -67,12 +68,8 @@ main {
     border-radius: 10px;
 }
 
-article {
-    background-color: #E6F8F1;
-    border: none;
-}
-
 h2 {
+    font-size: 1.5rem;
     color: var(--title-color-primary);
     font-weight: 550;
 }
@@ -83,42 +80,77 @@ h3 {
     color: var(--title-color-secundary);
 }
 
-p {
-    color: var(--text-color-primary);
-}
-
 li {
     list-style: none;
 }
 
+.title-color-secundary {
+    color: var(--title-color-secundary);
+}
+
+.info-background-color {
+    background-color: var(--info-background-color);
+}
+
+.moreinfo-background-color {
+    background-color: var(--moreinfo-background-color);
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.pet-nome,
+.pet-raca,
+.pet-apelido,
+.pet-tutor,
+.pet-porte,
+.pet-idade,
+.pet-perfume {
+    font-weight: initial;
+}
+
 .img-pet {
-    height: 8rem;
-    width: 8rem;
+    height: 7rem;
+    width: 7rem;
 }
 
 .img-edicao {
     height: 2.2rem;
     width: 2.2rem;
+    cursor: pointer;
 }
 
-@media (min-width: 1400px) {
+.more-info:hover {
+    background-color: rgba(#fff, #fff, #fff, 0.7);
+    font-size: 1.05rem;
+    transition: 0.3s ease-in-out;
+}
 
-    .container,
+@media (min-width: 87.5rem) {
+
+    /* .container,
     .container-lg,
     .container-md,
     .container-sm,
     .container-xl,
     .container-xxl {
-        max-width: 710px;
-    }
+        max-width: 44.375rem;
+    } */
 }
 
-@media (min-width: 992px) {
+@media (min-width: 62rem) {
 
-    .container,
+    /* .container,
     .container-lg,
     .container-md,
     .container-sm {
-        max-width: 720px;
+        max-width: 45rem;
+    } */
+}
+
+@media (max-width: 74.95rem) {
+    .col {
+        flex: 1 1 calc(50% - 1rem);
     }
 }

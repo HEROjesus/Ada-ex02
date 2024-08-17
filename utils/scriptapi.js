@@ -2,7 +2,6 @@ var chavePet = "pets"
 
 var chaveAtendimento = "atendimentos"
 
-
 // Função para gerar um ID único
 function gerarIdUnico() {
     return '_' + Math.random().toString(36).substr(2, 9);
@@ -67,3 +66,21 @@ function buscarAtendimento(id) {
     return atendimento
 }
 
+//Editar Cachorro para a pagina
+function editarCachorro(cachorro) {
+    // Monta a URL com o parâmetro idCachorro
+    const url = `../pages/Cadastro-Atendimento/index.html?idCachorro=${cachorro.id}`;
+    // Redireciona para a URL construída
+    window.location.href = url;
+}
+
+// Função para obter os parâmetros da query string
+function obterValorParametroURL(nomeDoParametro) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(nomeDoParametro);
+}
+/*
+ exemplo de uso
+ const idCachorro = obterValorParametroURL('idCachorro');
+*/
+// Obtém o valor do parâmetro "nome"
