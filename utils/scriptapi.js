@@ -74,7 +74,7 @@ function editarCachorro(cachorro) {
     window.location.href = url;
 }
 
-   // Função para obter os parâmetros da query string
+// Função para obter os parâmetros da query string
 function obterValorParametroURL(nomeDoParametro) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(nomeDoParametro);
