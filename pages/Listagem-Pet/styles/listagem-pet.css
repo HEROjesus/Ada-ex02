@@ -144,6 +144,7 @@ li {
 .more-info-item:hover {
     background-color: var(--info-background-color);
     color: var(--title-color-secundary);
+    font-weight: bold;
 }
 
 @media (min-width: 87.5rem) {
