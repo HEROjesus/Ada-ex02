@@ -71,7 +71,7 @@ function buscarAtendimento(id) {
 //mudar o caminho de acordo com a pagina de cadastro de cachorro
 function editarCachorro(cachorro) {
     // Monta a URL com o parâmetro idCachorro
-    const url = `../cachorro/cadastro.html?idCachorro=${cachorro.id}`;
+    const url = `../pages/Home/index.html?idCachorro=${cachorro.id}`;
     // Redireciona para a URL construída
     window.location.href = url;
 }
