@@ -3,7 +3,7 @@
     --title-color-secundary: #63A68E;
     --text-color-primary: #84BDA8;
     --info-background-color: #E6F8F1;
-    --moreinfo-background-color: #acd8c7;
+    --moreinfo-background-color: #fff;
 }
 
 * {
@@ -49,7 +49,16 @@
     --bs-dropdown-color: var(--bs-body-color);
     --bs-dropdown-bg: #4c866b;
     --bs-dropdown-link-hover-bg: #1b4532;
+}
 
+.dropdown-item {
+    color: #fff;
+}
+
+.dropdown-item:hover {
+    background-color: var(--bs-dropdown-bg);
+    color: #fff;
+    font-weight: 500;
 }
 
 body {
@@ -122,9 +131,20 @@ li {
 }
 
 .more-info:hover {
-    background-color: rgba(#fff, #fff, #fff, 0.7);
     font-size: 1.05rem;
     transition: 0.3s ease-in-out;
+}
+
+.img-edicao:hover {
+    height: 2.4rem;
+    width: 2.4rem;
+    transition: 0.3s ease-out;
+}
+
+.more-info-item:hover {
+    background-color: var(--info-background-color);
+    color: var(--title-color-secundary);
+    font-weight: bold;
 }
 
 @media (min-width: 87.5rem) {
