@@ -109,3 +109,7 @@ body{
   transition: .5s;
 }
 
+.dropdown-item {
+  color: #fff;
+  }
+  
