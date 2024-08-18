@@ -169,36 +169,51 @@
     <footer>
       <!-- rodapé aqui -->
     </footer>
-    <script src="script.js"></script>
+    
     <script>
-      function enviar() {
-        const petName = document.getElementById("petName");
-        const petNickname = document.getElementById("petNickname");
-        const birthdate = document.getElementById("birthdate");
-        const petSize = document.getElementById("petSize");
-        const coatType = document.getElementById("coatType");
-        const breed = document.getElementById("breed");
-        const ownerName = document.getElementById("ownerName");
-        const phoneNumber = document.getElementById("phoneNumber");
-        const email = document.getElementById("email");
-        const observations = document.getElementById("observations");
-
-        objt = {
-          petName: petName.value,
-          petNickname: petNickname.value,
-          birthdate: birthdate.value,
-          petSize: petSize.value,
-          coatType: coatType.value,
-          breed: breed.value,
-          ownerName: ownerName.value,
-          phoneNumber: phoneNumber.value,
-          email: email.value,
-          observations: observations.value,
+    // Função para gerar um ID único
+    function gerarIdUnico() {
+        return '_' + Math.random().toString(36).substr(2, 9);
+    }
+    
+    // Função para salvar pet no localStorage
+    function salvarPet(pet) {
+        pet.id = gerarIdUnico();
+        const pets = JSON.parse(localStorage.getItem('pets')) || [];
+        pets.push(pet);
+        localStorage.setItem('pets', JSON.stringify(pets));
+        alert('Cadastro salvo com sucesso!');
+    }
+    
+    // Função para capturar e enviar os dados do formulário
+    function enviar() {
+        const petName = document.getElementById("petName").value;
+        const petNickname = document.getElementById("petNickname").value;
+        const birthdate = document.getElementById("birthdate").value;
+        const petSize = document.getElementById("petSize").value;
+        const coatType = document.getElementById("coatType").value;
+        const breed = document.getElementById("breed").value;
+        const ownerName = document.getElementById("ownerName").value;
+        const phoneNumber = document.getElementById("phoneNumber").value;
+        const email = document.getElementById("email").value;
+        const observations = document.getElementById("observations").value;
+    
+        const objt = {
+            petName: petName,
+            petNickname: petNickname,
+            birthdate: birthdate,
+            petSize: petSize,
+            coatType: coatType,
+            breed: breed,
+            ownerName: ownerName,
+            phoneNumber: phoneNumber,
+            email: email,
+            observations: observations,
         };
         
         salvarPet(objt);
-      }
-
+    }
+  </script>
       
 
     </script>
