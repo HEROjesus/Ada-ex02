@@ -132,6 +132,11 @@ li {
     transition: 0.3s ease-out;
 }
 
+.dropdown-item:hover {
+    background-color: var(--info-background-color);
+    color: var(--title-color-secundary);
+}
+
 @media (min-width: 87.5rem) {
 
     /* .container,
