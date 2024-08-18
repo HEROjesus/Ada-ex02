@@ -13,12 +13,6 @@ header{
     margin-bottom: 5rem ;
 }
 
-nav{
-    height: 100%;
-    border-radius: 0 0 2rem 2rem;
-    
-}
-
 .btn-secondary {
     --bs-btn-color: #fff;
     --bs-btn-bg: #0268c300;
@@ -104,3 +98,5 @@ form{
       flex: 1 1 100%;
     }
   }
+  
+  
