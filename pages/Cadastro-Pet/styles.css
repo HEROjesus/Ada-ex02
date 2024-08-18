@@ -2,9 +2,7 @@
 body{
     height: 100vh;
     background-color: #9dc8b25d;
-}
-header{
-    margin-bottom: 5rem ;
+  
 }
 
 .btn-secondary {
@@ -47,10 +45,17 @@ main{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%;
-    width: 100%;
-    
-    margin-top: 2rem;
+    background-color: #fff;
+    max-width: 1280px;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    border-radius: 12px;
+    color: #5ca383;
+}
+
+h1{
+  margin-bottom: 2rem;
 }
 
 form{
@@ -59,7 +64,6 @@ form{
     
 }
 .form-container {
-    max-width: 800px;
     margin: 0 auto;
     gap: 20px;
   }
@@ -97,3 +101,29 @@ form{
   color: #fff;
   }
   
+  #principal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  #cadastrar{
+    background-color: #8DC8B2;
+    margin-top: 2vh;
+    transition: .5s;
+    color: #ffffff;
+    border: none;
+  }
+  
+  #cadastrar:hover{
+    background-color: #4c866b;
+    border-color: #4c866b;
+    transition: .5s;
+    color: #eaf1ef;
+  }
+
+  label{
+    font-size: medium;
+    font-weight: 700;
+  }
