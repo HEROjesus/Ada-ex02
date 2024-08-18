@@ -3,7 +3,7 @@
     --title-color-secundary: #63A68E;
     --text-color-primary: #84BDA8;
     --info-background-color: #E6F8F1;
-    --moreinfo-background-color: #acd8c7;
+    --moreinfo-background-color: #fff;
 }
 
 * {
@@ -122,9 +122,14 @@ li {
 }
 
 .more-info:hover {
-    background-color: rgba(#fff, #fff, #fff, 0.7);
     font-size: 1.05rem;
     transition: 0.3s ease-in-out;
+}
+
+.img-edicao:hover {
+    height: 2.4rem;
+    width: 2.4rem;
+    transition: 0.3s ease-out;
 }
 
 @media (min-width: 87.5rem) {
