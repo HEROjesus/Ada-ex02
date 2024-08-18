@@ -49,7 +49,16 @@
     --bs-dropdown-color: var(--bs-body-color);
     --bs-dropdown-bg: #4c866b;
     --bs-dropdown-link-hover-bg: #1b4532;
+}
 
+.dropdown-item {
+    color: #fff;
+}
+
+.dropdown-item:hover {
+    background-color: var(--bs-dropdown-bg);
+    color: #fff;
+    font-weight: 500;
 }
 
 body {
@@ -132,7 +141,7 @@ li {
     transition: 0.3s ease-out;
 }
 
-.dropdown-item:hover {
+.more-info-item:hover {
     background-color: var(--info-background-color);
     color: var(--title-color-secundary);
 }
