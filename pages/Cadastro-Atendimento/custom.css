@@ -10,6 +10,9 @@
   background-color: #8DC8B2;
 }
 
+.p-5 {
+  padding: 1rem !important;
+}
 
 .btn-check:checked+.btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active {
   color: var(--bs-btn-active-color);
@@ -37,16 +40,9 @@
 
 @media (min-width: 1400px) {
   .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
-      max-width: 720px;
+      
   }
 }
-
-@media (min-width: 992px) {
-  .container, .container-lg, .container-md, .container-sm {
-      max-width: 720px;
-  }
-}
-
 
 
 main {
@@ -55,9 +51,6 @@ main {
   display: flex;
   justify-content: center;
   height: auto;
-  width: 90vw;
-  max-width: 700px;
-  padding: 10px;
   border-radius: 10px;
   color: #5ca383;
 }
@@ -88,6 +81,7 @@ body{
   background-color: #8DC8B2;
   margin-top: 2vh;
   transition: .5s;
+  color: #ffffff;
 }
 
 #enviar:hover{

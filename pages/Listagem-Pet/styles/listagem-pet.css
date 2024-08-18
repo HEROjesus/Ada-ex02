@@ -10,6 +10,9 @@
     padding: 0;
     margin: 0;
 }
+h1{
+    color: #5ca383;
+}
 
 .btn-secondary {
     --bs-btn-color: #fff;
