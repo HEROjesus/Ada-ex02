@@ -99,18 +99,18 @@
             <label for="petSize">Porte do Pet</label>
             <select class="form-select" id="petSize">
               <option selected>Escolha o porte</option>
-              <option value="1">Pequeno</option>
-              <option value="2">Médio</option>
-              <option value="3">Grande</option>
+              <option value="Pequeno">Pequeno</option>
+              <option value="Medio">Médio</option>
+              <option value="Grande">Grande</option>
             </select>
           </div>
           <div class="form-group">
             <label for="coatType">Pelagem do Pet</label>
             <select class="form-select" id="coatType">
               <option selected>Escolha a pelagem</option>
-              <option value="1">Curta</option>
-              <option value="2">Média</option>
-              <option value="3">Longa</option>
+              <option value="Curta">Curta</option>
+              <option value="Media">Média</option>
+              <option value="Longa">Longa</option>
             </select>
           </div>
           <div class="form-group">
@@ -171,6 +171,7 @@
     </footer>
     
     <script>
+
     // Função para gerar um ID único
     function gerarIdUnico() {
         return '_' + Math.random().toString(36).substr(2, 9);
