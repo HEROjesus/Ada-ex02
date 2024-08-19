@@ -138,6 +138,11 @@ form {
   color: #eaf1ef;
 }
 
+.pet-foto {
+  width: 13rem;
+  height: auto;
+}
+
 label {
   font-size: medium;
   font-weight: 700;
