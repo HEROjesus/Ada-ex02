@@ -63,8 +63,10 @@
         <div class="form-check d-flex flex-column gap-2" id="service-checkboxes">
           <label><input class="form-check-input" type="checkbox" name="services" value="Banho"> Banho</label>
           <label><input class="form-check-input" type="checkbox" name="services" value="Tosa"> Tosa</label>
-          <label><input class="form-check-input" type="checkbox" name="services" value="Tosa Higiênica"> Tosa Higiênica</label>
-          <label><input class="form-check-input" type="checkbox" name="services" value="Cortar Unha"> Cortar Unha</label>
+          <label><input class="form-check-input" type="checkbox" name="services" value="Tosa Higiênica"> Tosa
+            Higiênica</label>
+          <label><input class="form-check-input" type="checkbox" name="services" value="Cortar Unha"> Cortar
+            Unha</label>
         </div>
 
         <label class="mt-4" for="perfume">
@@ -128,6 +130,12 @@
       const petId = urlParams.get('petId');
 
       if (petId) {
+        document.title = "Edição de Atendimento";
+        const pageTitle = document.querySelector('h1');
+        if (pageTitle) {
+          pageTitle.textContent = "Edição de Atendimento";
+        }
+
         const pet = pets.find(p => p.id === petId);
 
         if (pet) {
