@@ -139,8 +139,10 @@ form {
 }
 
 .pet-foto {
+  border-radius: 12px;
   width: 13rem;
   height: auto;
+  display: none;
 }
 
 label {
