@@ -1,46 +1,26 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="styles.css" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <title>Ada Petshop</title>
-</head>
-
-<body class="h-100% w-100%">
-  <header>
-    <nav class="navbar bg-body-primary align-items-center" id="navegacao">
-      <div class="container d-flex justify-content-space-between">
-        <a class="navbar-brand" href="#">
-          <img src="/assets/img/logoPetshop.png" alt="Ada Petshop" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="../../assets/img/favIcon.ico" />
+    <title>Ada Petshop</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./custom.css" />
+  </head>
+  <body>
+    <header class="navbar bg-body-primary align-items-center" id="navegacao">
+      <div class="container d-flex justify-content-center">
+        <a class="navbar-brand" href="../Home/index.html">
+          <img src="./logoPetshop.png" alt="Ada Petshop" />
         </a>
-        <div class="d-flex gap-1">
-          <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              Cadastro
-            </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Pets</a></li>
-              <li><a class="dropdown-item" href="#">Atendimentos</a></li>
-            </ul>
-          </div>
-          <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              Listagem
-            </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Pets</a></li>
-              <li><a class="dropdown-item" href="#">Atendimentos</a></li>
-            </ul>
-          </div>
-        </div>
       </div>
+<<<<<<< HEAD
     </nav>
   </header>
   <main>
@@ -98,34 +78,44 @@
             <!-- Opções de raças serão inseridas aqui pelo JavaScript -->
           </select>
         </div>
+=======
+    </header>
+>>>>>>> c7465d1b27a8900824e1b7f838cacefc545b5c92
 
-        <div class="form-group">
-          <label for="ownerName">Nome e Sobrenome</label>
-          <div class="input-group">
-            <span class="input-group-text">Nome Completo</span>
-            <input type="text" class="form-control" id="ownerName" placeholder="Seu nome" />
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="phoneNumber">Número de Telefone</label>
-          <input type="text" class="form-control" id="phoneNumber" placeholder="Seu telefone" />
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" class="form-control" id="email" placeholder="name@example.com" />
-        </div>
-        <div class="form-group full-width">
-          <label for="observations">Observações do Pet</label>
-          <textarea class="form-control" id="observations" rows="3" placeholder="Digite aqui..."></textarea>
-        </div>
-        <button onclick="enviar()" class="btn btn-success" type="button">Enviar</button>
-      </form>
-    </div>
-  </main>
-  <footer>
-    <!-- rodapé aqui -->
-  </footer>
+    <main class="container flex-column align-items-center">
+      <h1>Bem vindo</h1>
+      <p>Nosso objetivo é te auxiliar com seus atendimentos.</p>
+      <p>Confira nossos serviços abaixo!</p>
+      <br />
+      <div class="d-flex flex-column gap-2">
+        <a
+          class="btn btn-primary d-flex justify-content-center align-items-center"
+          href="../Cadastro-Pet/index.html"
+          role="button"
+          >Cadastre o Pet</a
+        >
+        <a
+          class="btn btn-primary d-flex justify-content-center align-items-center"
+          href="../Cadastro-Atendimento/index.html"
+          role="button"
+          >Cadastre um Atendimento</a
+        >
+        <a
+          class="btn btn-primary d-flex justify-content-center align-items-center"
+          href="../Listagem-Pet/listagem-pet.html"
+          role="button"
+          >Veja os Pets cadastrados</a
+        >
+        <a
+          class="btn btn-primary d-flex justify-content-center align-items-center"
+          href="../Listagem-Atendimento/listagem-atendimento.html"
+          role="button"
+          >Veja os Atendimentos</a
+        >
+      </div>
+    </main>
 
+<<<<<<< HEAD
   <script>
     // URL da API para listar as raças
     const apiUrl = 'https://dog.ceo/api/breeds/list/all';
@@ -259,4 +249,12 @@
   </script>
 </body>
 
+=======
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+>>>>>>> c7465d1b27a8900824e1b7f838cacefc545b5c92
 </html>

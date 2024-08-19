@@ -10,6 +10,7 @@
     padding: 0;
     margin: 0;
 }
+
 h1{
     color: #5ca383;
 }
@@ -113,12 +114,13 @@ li {
 }
 
 .pet-nome,
-.pet-raca,
-.pet-apelido,
 .pet-tutor,
-.pet-porte,
-.pet-idade,
-.pet-perfume {
+.atendimento-tipo,
+.atendimento-status,
+.atendimento-perfume,
+.atendimento-responsavel,
+.atendimento-horario,
+.atendimento-obs {
     font-weight: initial;
 }
 
@@ -149,28 +151,6 @@ li {
     background-color: var(--info-background-color);
     color: var(--title-color-secundary);
     font-weight: bold;
-}
-
-@media (min-width: 87.5rem) {
-
-    /* .container,
-    .container-lg,
-    .container-md,
-    .container-sm,
-    .container-xl,
-    .container-xxl {
-        max-width: 44.375rem;
-    } */
-}
-
-@media (min-width: 62rem) {
-
-    /* .container,
-    .container-lg,
-    .container-md,
-    .container-sm {
-        max-width: 45rem;
-    } */
 }
 
 @media (max-width: 74.95rem) {

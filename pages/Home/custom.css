@@ -1,0 +1,66 @@
+.btn-secondary {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #0268c300;
+  --bs-btn-border-color: #6c757d00;
+  --bs-btn-font-size: 1.2rem;
+  --bs-btn-font-weight: 500;
+}
+
+#navegacao{
+  background-color: #8DC8B2;
+}
+
+.p-5 {
+  padding: 1rem !important;
+}
+
+.btn{
+  background-color: #8DC8B2;
+  margin-top: 2vh;
+  transition: .5s;
+  color: #ffffff;
+  border: none;
+  font-weight: 500;
+  height: 10vh;
+}
+
+.btn:hover {
+  background-color: #4c866b;
+  border-color: #4c866b;
+  transition: .5s;
+  color: #eaf1ef;
+}
+
+
+h1{
+  margin-bottom: 50px;
+}
+
+
+main {
+  margin-top: 20px;
+  background-color: #fff;
+  gap: 2;
+  display: flex;
+  justify-content: center;
+  height: auto;
+  border-radius: 10px;
+  color: #5ca383;
+  max-width: 1280px;
+  padding: 50px;
+}
+
+p{
+  text-align: center;
+  max-width: 300px;
+  font-weight: 500;
+}
+
+#pet-search{
+  cursor: default;
+}
+
+body{
+  background-color: #e8efec;
+}
+
