@@ -6,7 +6,7 @@
   --bs-btn-font-weight: 500;
 }
 
-#navegacao{
+#navegacao {
   background-color: #8DC8B2;
 }
 
@@ -14,11 +14,16 @@
   padding: 1rem !important;
 }
 
-.btn-check:checked+.btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active {
+.btn-check:checked+.btn,
+.btn.active,
+.btn.show,
+.btn:first-child:active,
+:not(.btn-check)+.btn:active {
   color: var(--bs-btn-active-color);
   background-color: #4c866b;
   border-color: #4c866b;
 }
+
 .btn:hover {
   color: var(--bs-btn-hover-color);
   background-color: #4c866b;
@@ -38,12 +43,15 @@
 
 }
 
-@media (min-width: 1400px) {
-  .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
-      
-  }
+.dropdown-item {
+  color: #fff;
 }
 
+.dropdown-item:hover {
+  background-color: var(--bs-dropdown-bg);
+  color: #fff;
+  font-weight: 500;
+}
 
 main {
   margin-top: 20px;
@@ -55,48 +63,52 @@ main {
   color: #5ca383;
 }
 
-#pet-search{
+#pet-search {
   cursor: default;
 }
 
-body{
+body {
   background-color: #e8efec;
 }
 
-:root, [data-bs-theme=light] {
+:root,
+[data-bs-theme=light] {
   --bs-body-bg: #ff0e0e00;
 }
 
-.form-floating>.form-control-plaintext~label, .form-floating>.form-control:focus~label, .form-floating>.form-control:not(:placeholder-shown)~label, .form-floating>.form-select~label {
-    color: #198754;
-    transform: scale(.85) translateY(-.5rem) translateX(.15rem);
+.form-floating>.form-control-plaintext~label,
+.form-floating>.form-control:focus~label,
+.form-floating>.form-control:not(:placeholder-shown)~label,
+.form-floating>.form-select~label {
+  color: #198754;
+  transform: scale(.85) translateY(-.5rem) translateX(.15rem);
 }
 
-.container{
+.container {
   justify-content: center;
   align-items: center;
 }
 
-#enviar{
+#enviar {
   background-color: #8DC8B2;
   margin-top: 2vh;
   transition: .5s;
   color: #ffffff;
 }
 
-#enviar:hover{
+#enviar:hover {
   background-color: #4c866b;
   border-color: #4c866b;
   transition: .5s;
   color: #eaf1ef;
 }
 
-#bot{
- display: flex;
- flex-direction: column;
+#bot {
+  display: flex;
+  flex-direction: column;
 }
 
-#cadastre{
+#cadastre {
   text-decoration: none;
   color: #198754;
   font-weight: 500;
@@ -104,8 +116,15 @@ body{
   transition: .5s;
 }
 
-#cadastre:hover{
+#cadastre:hover {
   color: #0dc243;
   transition: .5s;
 }
 
+.dropdown-item {
+  color: #fff;
+}
+
+.bold {
+  font-weight: bold;
+}

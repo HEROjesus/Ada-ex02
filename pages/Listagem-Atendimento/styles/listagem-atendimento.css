@@ -1,0 +1,160 @@
+:root {
+    --title-color-primary: #8DC8B2;
+    --title-color-secundary: #63A68E;
+    --text-color-primary: #84BDA8;
+    --info-background-color: #E6F8F1;
+    --moreinfo-background-color: #fff;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+h1{
+    color: #5ca383;
+}
+
+.btn-secondary {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #0268c300;
+    --bs-btn-border-color: #6c757d00;
+    --bs-btn-font-size: 1.2rem;
+    --bs-btn-font-weight: 500;
+}
+
+#navegacao {
+    background-color: #8DC8B2;
+}
+
+.btn-check:checked+.btn,
+.btn.active,
+.btn.show,
+.btn:first-child:active,
+:not(.btn-check)+.btn:active {
+    color: var(--bs-btn-active-color);
+    background-color: #4c866b;
+    border-color: #4c866b;
+}
+
+.btn:hover {
+    color: var(--bs-btn-hover-color);
+    background-color: #4c866b;
+    border-color: #4c866b;
+}
+
+.dropdown-menu {
+    --bs-dropdown-zindex: 1000;
+    --bs-dropdown-min-width: 10rem;
+    --bs-dropdown-padding-x: 0;
+    --bs-dropdown-padding-y: 0.5rem;
+    --bs-dropdown-spacer: 0.125rem;
+    --bs-dropdown-font-size: 1.1rem;
+    --bs-dropdown-color: var(--bs-body-color);
+    --bs-dropdown-bg: #4c866b;
+    --bs-dropdown-link-hover-bg: #1b4532;
+}
+
+.dropdown-item {
+    color: #fff;
+}
+
+.dropdown-item:hover {
+    background-color: var(--bs-dropdown-bg);
+    color: #fff;
+    font-weight: 500;
+}
+
+body {
+    background-color: #e8efec;
+}
+
+main {
+    margin-top: 20px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    height: auto;
+    width: 90vw;
+    max-width: 720px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: var(--title-color-primary);
+    font-weight: 550;
+}
+
+h3 {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--title-color-secundary);
+}
+
+li {
+    list-style: none;
+}
+
+.title-color-secundary {
+    color: var(--title-color-secundary);
+}
+
+.info-background-color {
+    background-color: var(--info-background-color);
+}
+
+.moreinfo-background-color {
+    background-color: var(--moreinfo-background-color);
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.pet-nome,
+.pet-tutor,
+.atendimento-tipo,
+.atendimento-status,
+.atendimento-perfume,
+.atendimento-responsavel,
+.atendimento-horario,
+.atendimento-obs {
+    font-weight: initial;
+}
+
+.img-pet {
+    height: 7rem;
+    width: 7rem;
+}
+
+.img-edicao {
+    height: 2.2rem;
+    width: 2.2rem;
+    cursor: pointer;
+    transition: 0.3s ease-in-out
+}
+
+.more-info:hover {
+    font-size: 1.05rem;
+    transition: 0.3s ease-in-out;
+}
+
+.img-edicao:hover {
+    height: 2.4rem;
+    width: 2.4rem;
+    transition: 0.3s ease-out;
+}
+
+.more-info-item:hover {
+    background-color: var(--info-background-color);
+    color: var(--title-color-secundary);
+    font-weight: bold;
+}
+
+@media (max-width: 74.95rem) {
+    .col {
+        flex: 1 1 calc(50% - 1rem);
+    }
+}
