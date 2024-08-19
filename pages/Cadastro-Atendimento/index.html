@@ -184,6 +184,10 @@
 
         // Limpa o formulário após o envio das informações
         form.reset();
+
+        // Redefine o estado dos checkboxes e dos botões de rádio
+        serviceCheckboxes.forEach(checkbox => checkbox.checked = false);
+        document.querySelector('input[name="perfume"][value="Não"]').checked = true;
       });
     });
   </script>
