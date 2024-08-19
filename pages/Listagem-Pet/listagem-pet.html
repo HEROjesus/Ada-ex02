@@ -59,22 +59,18 @@
 
 <script>
     function editarCachorro(petId) {
-        // Redireciona para a página de edição com o ID do pet na URL
         const url = `../Cadastro-Pet/index.html?idCachorro=${petId}`;
         window.location.href = url;
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-        // Recupera os dados dos pets do localStorage
+
         const petsData = JSON.parse(localStorage.getItem('pets')) || [];
 
-        // Seleciona a seção onde os cartões de pet serão inseridos
         const petListSection = document.querySelector('section.row');
 
-        // Limpa qualquer conteúdo existente (caso necessário)
         petListSection.innerHTML = '';
 
-        // Itera sobre os dados dos pets e cria os cartões
         petsData.forEach(pet => {
             const petCard = document.createElement('div');
             petCard.classList.add('col');
@@ -101,13 +97,10 @@
         </div>
     `;
 
-            // Adiciona o cartão à seção
             petListSection.appendChild(petCard);
         });
     });
 
-
-    // Função para calcular a idade do pet
     function calculateAge(birthdate) {
         const birthDate = new Date(birthdate);
         const ageDifMs = Date.now() - birthDate.getTime();

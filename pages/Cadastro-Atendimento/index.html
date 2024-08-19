@@ -101,12 +101,11 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const petListElement = document.getElementById('pet-list');
+
       const serviceCheckboxes = document.querySelectorAll('input[name="services"]');
 
-      // Pega os pets armazenados no localStorage
       const pets = JSON.parse(localStorage.getItem('pets')) || [];
 
-      // Adiciona as opções ao datalist com o id pet-list
       pets.forEach(pet => {
         const option = document.createElement('option');
         option.value = pet.petName;
@@ -115,7 +114,6 @@
 
       const form = document.querySelector('form');
 
-      // Função para buscar informações do pet selecionado
       document.getElementById('pet-search').addEventListener('input', function () {
         const petName = this.value;
         const pet = pets.find(p => p.petName === petName);
@@ -125,8 +123,8 @@
         }
       });
 
-      // Recupera o ID do Pet da URL
       const urlParams = new URLSearchParams(window.location.search);
+
       const petId = urlParams.get('petId');
 
       if (petId) {
@@ -136,7 +134,6 @@
           document.getElementById('pet-search').value = pet.petName;
           document.getElementById('atendimento-responsavel').value = pet.ownerName;
 
-          // Preenche os checkboxes de serviços
           pet.services.forEach(service => {
             const checkbox = document.querySelector(`input[name="services"][value="${service}"]`);
             if (checkbox) {
@@ -144,7 +141,6 @@
             }
           });
 
-          // Preenche a opção de perfume
           const perfumeRadio = document.querySelector(`input[name="perfume"][value="${pet.perfume}"]`);
           if (perfumeRadio) {
             perfumeRadio.checked = true;
@@ -161,7 +157,6 @@
         const responsavel = document.getElementById('atendimento-responsavel').value;
         const horario = document.getElementById('atendimento-horario').value;
 
-        // Cria um objeto para armazenar as informações do atendimento
         const atendimento = {
           petName,
           services,
@@ -170,22 +165,16 @@
           horario
         };
 
-        // Verifica se já existem atendimentos no localStorage
         const atendimentos = JSON.parse(localStorage.getItem('atendimentos')) || [];
 
-        // Adiciona o novo atendimento à lista de atendimentos
         atendimentos.push(atendimento);
 
-        // Salva a lista atualizada de atendimentos no localStorage
         localStorage.setItem('atendimentos', JSON.stringify(atendimentos));
 
-        // Exibe uma mensagem de confirmação
         alert('Atendimento cadastrado com sucesso!');
 
-        // Limpa o formulário após o envio das informações
         form.reset();
 
-        // Redefine o estado dos checkboxes e dos botões de rádio
         serviceCheckboxes.forEach(checkbox => checkbox.checked = false);
         document.querySelector('input[name="perfume"][value="Não"]').checked = true;
       });

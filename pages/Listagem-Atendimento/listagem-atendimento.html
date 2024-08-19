@@ -64,26 +64,20 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      // Recupera os atendimentos do localStorage
+
       const atendimentos = JSON.parse(localStorage.getItem("atendimentos")) || [];
 
-      // Recupera os pets do localStorage
       const pets = JSON.parse(localStorage.getItem("pets")) || [];
 
-      // Seleciona a seção onde os cards de atendimento serão inseridos
       const section = document.querySelector("section.row");
 
-      // Itera sobre cada atendimento e cria o HTML correspondente
       atendimentos.forEach((atendimento) => {
-        // Busca o pet correspondente pelo nome
         const petEncontrado = pets.find((pet) => pet.petName === atendimento.petName);
 
-        // Obtém a observação, tutor e imagem do pet (se existirem)
         const observacaoPet = petEncontrado ? petEncontrado.observations : "Sem observações";
         const tutorPet = petEncontrado ? petEncontrado.ownerName : "Tutor não informado";
         const imagemPet = petEncontrado && petEncontrado.dogImage ? petEncontrado.dogImage : "https://cdn-icons-png.flaticon.com/512/194/194279.png";
 
-        // Cria o card de atendimento
         const card = document.createElement("div");
         card.classList.add("col");
 
@@ -111,7 +105,6 @@
           </div>
         `;
 
-        // Adiciona o card à seção
         section.appendChild(card);
       });
     });

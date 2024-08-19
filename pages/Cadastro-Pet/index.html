@@ -148,8 +148,6 @@ $(document).ready(function () {
   $("#phoneNumber").mask("(00) 00000-0000");
   
 });
-
-      //adicionar imagem ao preview
       async function selecionarRaca() {
         const racaSelecionada = document.getElementById('breed').value;
   
@@ -169,20 +167,17 @@ $(document).ready(function () {
           }
         }
       }
-  
-      //tornar visivel o componente
+
       function exibirImagemDog(url) {
         const imgElement = document.getElementById('dogImagePreview');
         imgElement.src = url;
         imgElement.style.display = 'block';
       }
-  
-      // Função para gerar um ID único
+
       function gerarIdUnico() {
         return "_" + Math.random().toString(36).substr(2, 9);
       }
-  
-      // Função para salvar pet no localStorage
+
       function salvarPet(pet) {
         pet.id = gerarIdUnico();
         const pets = JSON.parse(localStorage.getItem("pets")) || [];
@@ -190,14 +185,12 @@ $(document).ready(function () {
         localStorage.setItem("pets", JSON.stringify(pets));
         alert("Cadastro salvo com sucesso!");
       }
-  
-      // Função para obter valor do parâmetro da URL
+
       function obterValorParametroURL(parametro) {
         const urlParams = new URLSearchParams(window.location.search);
         return urlParams.get(parametro);
       }
-  
-      // Função para carregar os dados do pet no formulário, caso seja uma edição
+
       document.addEventListener("DOMContentLoaded", () => {
         const idCachorro = obterValorParametroURL("idCachorro");
         if (idCachorro) {
@@ -233,7 +226,7 @@ $(document).ready(function () {
         const idCachorro = obterValorParametroURL("idCachorro");
   
         const objt = {
-          id: idCachorro || gerarIdUnico(), // Caso seja uma edição, mantém o ID, senão gera um novo.
+          id: idCachorro || gerarIdUnico(),
           petName: petName,
           petNickname: petNickname,
           birthdate: birthdate,
@@ -260,18 +253,15 @@ $(document).ready(function () {
         return urlParams.get(nomeDoParametro);
       }
   
-      // Função para buscar pet pelo ID
       function buscarPet(id) {
         const pets = JSON.parse(localStorage.getItem("pets")) || [];
         return pets.find((p) => p.id === id);
       }
-  
-      // Função para gerar um ID único
+
       function gerarIdUnico() {
         return "_" + Math.random().toString(36).substr(2, 9);
       }
-  
-      // Função para atualizar pet no localStorage
+
       function atualizarPet(petAtualizado) {
         let pets = JSON.parse(localStorage.getItem("pets")) || [];
         pets = pets.map((pet) =>
@@ -279,8 +269,7 @@ $(document).ready(function () {
         );
         localStorage.setItem("pets", JSON.stringify(pets));
       }
-  
-      //Trazer as raças para o select
+
       async function fetchRacas() {
         const racaSelecionada = document.getElementById('breed')
   
@@ -305,8 +294,7 @@ $(document).ready(function () {
           console.error('Erro aqui:', error)
         }
       }
-  
-      // funcao para chamar ao abrir a pagina
+
       document.addEventListener('DOMContentLoaded', fetchRacas);
     </script>
   </body>
