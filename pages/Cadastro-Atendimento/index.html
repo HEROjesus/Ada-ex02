@@ -60,47 +60,48 @@
           <h3>Serviços</h3>
         </label>
 
-        <div class="form-check d-flex flex-column gap-2">
+        <div class="form-check d-flex flex-column gap-2" id="service-checkboxes">
           <label><input class="form-check-input" type="checkbox" name="services" value="Banho"> Banho</label>
           <label><input class="form-check-input" type="checkbox" name="services" value="Tosa"> Tosa</label>
           <label><input class="form-check-input" type="checkbox" name="services" value="Tosa Higiênica"> Tosa Higiênica</label>
           <label><input class="form-check-input" type="checkbox" name="services" value="Cortar Unha"> Cortar Unha</label>
+        </div>
 
-          <label class="mt-4" for="perfume">
-            <h3 class="text-center">Passa perfume?</h3>
-          </label>
+        <label class="mt-4" for="perfume">
+          <h3 class="text-center">Passa perfume?</h3>
+        </label>
 
-          <label><input class="form-check-input" type="radio" name="perfume" value="Sim"> Sim</label>
-          <label><input class="form-check-input" type="radio" name="perfume" value="Não" checked>Não</label>
+        <label><input class="form-check-input" type="radio" name="perfume" value="Sim"> Sim</label>
+        <label><input class="form-check-input" type="radio" name="perfume" value="Não" checked>Não</label>
 
-          <div class="infos-escritas d-flex flex-column m-4">
-            <label for="atendimento-responsavel" class="bold">Nome do(a) responsável:</label>
-            <input type="text" class="form-control" id="atendimento-responsavel" name="atendimento-responsavel"
-              placeholder="Digite o nome..." />
-            <br>
-            <label for="atendimento-horario" class="bold">Horario:</label>
-            <input type="text" class="form-control" id="atendimento-responsavel" name="horario"
-              placeholder="21/08/24 - 16:00" />
-          </div>
+        <div class="infos-escritas d-flex flex-column m-4">
+          <label for="atendimento-responsavel" class="bold">Nome do(a) responsável:</label>
+          <input type="text" class="form-control" id="atendimento-responsavel" name="atendimento-responsavel"
+            placeholder="Digite o nome..." />
+          <br>
+          <label for="atendimento-horario" class="bold">Horario:</label>
+          <input type="text" class="form-control" id="atendimento-horario" name="horario"
+            placeholder="21/08/24 - 16:00" />
         </div>
 
         <input type="submit" id="enviar" class="btn mt-4 " value="Marcar Atendimento">
 
         <div id="bot" class="mt-4">
           <p class="text-center">O pet ainda não está no sistema?</p>
-          <a id="cadastre" class="text-center" href="../Cadastro-Pet/index.html">Cadastre ele aqui</aid>
+          <a id="cadastre" class="text-center" href="../Cadastro-Pet/index.html">Cadastre ele aqui</a>
         </div>
       </form>
     </main>
   </div>
-  
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
-  
+
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const petListElement = document.getElementById('pet-list');
+      const serviceCheckboxes = document.querySelectorAll('input[name="services"]');
 
       // Pega os pets armazenados no localStorage
       const pets = JSON.parse(localStorage.getItem('pets')) || [];
@@ -121,19 +122,44 @@
 
         if (pet) {
           document.getElementById('atendimento-responsavel').value = pet.ownerName;
-          document.getElementById('atendimento-obs').value = pet.obs;
         }
       });
 
-      form.addEventListener('submit', function (event) {
-        event.preventDefault(); // Previne o envio do formulário
+      // Recupera o ID do Pet da URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const petId = urlParams.get('petId');
 
-        // Captura os valores dos campos
+      if (petId) {
+        const pet = pets.find(p => p.id === petId);
+
+        if (pet) {
+          document.getElementById('pet-search').value = pet.petName;
+          document.getElementById('atendimento-responsavel').value = pet.ownerName;
+
+          // Preenche os checkboxes de serviços
+          pet.services.forEach(service => {
+            const checkbox = document.querySelector(`input[name="services"][value="${service}"]`);
+            if (checkbox) {
+              checkbox.checked = true;
+            }
+          });
+
+          // Preenche a opção de perfume
+          const perfumeRadio = document.querySelector(`input[name="perfume"][value="${pet.perfume}"]`);
+          if (perfumeRadio) {
+            perfumeRadio.checked = true;
+          }
+        }
+      }
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
         const petName = document.getElementById('pet-search').value;
         const services = Array.from(document.querySelectorAll('input[name="services"]:checked')).map(el => el.value);
         const perfume = document.querySelector('input[name="perfume"]:checked').value;
         const responsavel = document.getElementById('atendimento-responsavel').value;
-        const horario = document.querySelector('input[name="horario"]').value;
+        const horario = document.getElementById('atendimento-horario').value;
 
         // Cria um objeto para armazenar as informações do atendimento
         const atendimento = {
@@ -161,7 +187,5 @@
       });
     });
   </script>
-
 </body>
-
 </html>
