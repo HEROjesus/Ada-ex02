@@ -95,9 +95,7 @@
           <label for="breed">Raça do Pet</label>
           <select class="form-select" id="breed">
             <option selected>Escolha a raça</option>
-            <option value="1">Raça 1</option>
-            <option value="2">Raça 2</option>
-            <option value="3">Raça 3</option>
+            <!-- Opções de raças serão inseridas aqui pelo JavaScript -->
           </select>
         </div>
 
@@ -129,6 +127,48 @@
   </footer>
 
   <script>
+    // URL da API para listar as raças
+    const apiUrl = 'https://dog.ceo/api/breeds/list/all';
+
+    // Função para buscar a lista de raças
+    function buscarRacas() {
+      fetch(apiUrl)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Erro na requisição: ' + response.status);
+          }
+          return response.json(); // Parseia a resposta JSON
+        })
+        .then(data => {
+          console.log('Dados recebidos:', data);
+          listarRacas(data.message); // Passa o objeto contendo as raças para a função listarRacas
+        })
+        .catch(error => {
+          console.error('Erro ao buscar raças:', error);
+        });
+    }
+
+    // Função para listar as raças no elemento HTML
+    function listarRacas(racas) {
+      const listaRacas = document.getElementById('breed');
+      for (const raca in racas) {
+        const listItem = document.createElement('option');
+        listItem.textContent = raca;
+        listaRacas.appendChild(listItem);
+
+        // Se houver sub-raças, listar abaixo da raça principal
+        if (racas[raca].length > 0) {
+          racas[raca].forEach(subRaca => {
+            const subItem = document.createElement('option');
+            subItem.textContent = `${raca} (${subRaca})`;
+            listaRacas.appendChild(subItem);
+          });
+        }
+      }
+    }
+
+    // Chama a função para buscar as raças ao carregar a página
+    document.addEventListener('DOMContentLoaded', buscarRacas);
 
     // Função para gerar um ID único
     function gerarIdUnico() {
@@ -144,6 +184,13 @@
       alert('Cadastro salvo com sucesso!');
     }
 
+    // Função para atualizar pet no localStorage
+    function atualizarPet(petAtualizado) {
+      let pets = JSON.parse(localStorage.getItem('pets')) || [];
+      pets = pets.map(pet => pet.id === petAtualizado.id ? petAtualizado : pet);
+      localStorage.setItem('pets', JSON.stringify(pets));
+    }
+
     // Função para capturar e enviar os dados do formulário
     function enviar() {
       const petName = document.getElementById("petName").value;
@@ -157,33 +204,35 @@
       const email = document.getElementById("email").value;
       const observations = document.getElementById("observations").value;
 
-      const objt = {
-        petName: petName,
-        petNickname: petNickname,
-        birthdate: birthdate,
-        petSize: petSize,
-        coatType: coatType,
-        breed: breed,
-        ownerName: ownerName,
-        phoneNumber: phoneNumber,
-        email: email,
-        observations: observations,
+      const idCachorro = obterValorParametroURL('idCachorro');
+
+      const pet = {
+        id: idCachorro,
+        petName,
+        petNickname,
+        birthdate,
+        petSize,
+        coatType,
+        breed,
+        ownerName,
+        phoneNumber,
+        email,
+        observations
       };
 
-      salvarPet(objt);
+      if (idCachorro) {
+        atualizarPet(pet);
+      } else {
+        salvarPet(pet);
+      }
     }
 
-    // Função para obter valor do parâmetro da URL
-    function obterValorParametroURL(parametro) {
-      const urlParams = new URLSearchParams(window.location.search);
-      return urlParams.get(parametro);
-    }
-
-    // Função para carregar os dados do pet no formulário, caso seja uma edição
-    document.addEventListener('DOMContentLoaded', () => {
+    // Função para preencher o formulário com os dados do pet
+    function preencherFormularioComDadosPet() {
       const idCachorro = obterValorParametroURL('idCachorro');
       if (idCachorro) {
-        const pet = buscarPet(idCachorro);
+        const pets = JSON.parse(localStorage.getItem('pets')) || [];
+        const pet = pets.find(p => p.id === idCachorro);
         if (pet) {
           document.getElementById("petName").value = pet.petName;
           document.getElementById("petNickname").value = pet.petNickname;
@@ -197,67 +246,16 @@
           document.getElementById("observations").value = pet.observations;
         }
       }
-    });
-
-    function enviar() {
-      const petName = document.getElementById("petName").value;
-      const petNickname = document.getElementById("petNickname").value;
-      const birthdate = document.getElementById("birthdate").value;
-      const petSize = document.getElementById("petSize").value;
-      const coatType = document.getElementById("coatType").value;
-      const breed = document.getElementById("breed").value;
-      const ownerName = document.getElementById("ownerName").value;
-      const phoneNumber = document.getElementById("phoneNumber").value;
-      const email = document.getElementById("email").value;
-      const observations = document.getElementById("observations").value;
-
-      const idCachorro = obterValorParametroURL('idCachorro');
-
-      const objt = {
-        id: idCachorro || gerarIdUnico(),  // Caso seja uma edição, mantém o ID, senão gera um novo.
-        petName: petName,
-        petNickname: petNickname,
-        birthdate: birthdate,
-        petSize: petSize,
-        coatType: coatType,
-        breed: breed,
-        ownerName: ownerName,
-        phoneNumber: phoneNumber,
-        email: email,
-        observations: observations,
-      };
-
-      if (idCachorro) {
-        atualizarPet(objt);
-        alert('Cadastro atualizado com sucesso!');
-      } else {
-        salvarPet(objt);
-        alert('Cadastro salvo com sucesso!');
-      }
     }
 
-    function obterValorParametroURL(nomeDoParametro) {
+    // Função para obter o valor de um parâmetro da URL
+    function obterValorParametroURL(nomeParametro) {
       const urlParams = new URLSearchParams(window.location.search);
-      return urlParams.get(nomeDoParametro);
+      return urlParams.get(nomeParametro);
     }
 
-    // Função para buscar pet pelo ID
-    function buscarPet(id) {
-      const pets = JSON.parse(localStorage.getItem('pets')) || [];
-      return pets.find(p => p.id === id);
-    }
-
-    // Função para gerar um ID único
-    function gerarIdUnico() {
-      return '_' + Math.random().toString(36).substr(2, 9);
-    }
-
-    // Função para atualizar pet no localStorage
-    function atualizarPet(petAtualizado) {
-      let pets = JSON.parse(localStorage.getItem('pets')) || [];
-      pets = pets.map(pet => pet.id === petAtualizado.id ? petAtualizado : pet);
-      localStorage.setItem('pets', JSON.stringify(pets));
-    }
+    // Preenche o formulário ao carregar a página, se houver um ID na URL
+    document.addEventListener('DOMContentLoaded', preencherFormularioComDadosPet);
   </script>
 </body>
 
