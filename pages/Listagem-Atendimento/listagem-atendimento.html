@@ -52,10 +52,31 @@
 
     <main class="container d-flex flex-column">
         <div class="d-flex justify-content-center mb-2">
-            <h1>Listagem de Pet</h1>
+            <h1>Listagem de Atendimentos</h1>
         </div>
         <section class="row row-cols-1 row-cols-md-3 g-4">
-            <!-- Os cartões de pet serão gerados aqui -->
+            <div class="col">
+                <div class="card h-100 flex-row align-items-center p-2 info-background-color">
+                    <img src="https://www.petlove.com.br/images/breeds/193103/profile/original/pastor_alemao-p.jpg?1532539270"
+                        class="img-pet rounded-circle" alt="...">
+                    <div class="card-body d-flex flex-column">
+                        <h3>Nome: <span class="pet-nome">Kyara</span></h3>
+                        <h3>Serviço: <span class="atendimento-tipo">Tosa</span></h3>
+                        <h3>Status: <span class="atendimento-status">Em andamento</span></h3>
+                        <h3>
+                            <a class="nav-link dropdown-toggle more-info" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Mais informações
+                            </a>
+                            <ul class="dropdown-menu moreinfo-background-color">
+                                <li><a class="dropdown-item more-info-item title-color-secundary bold" href="#">Perfume: <span class="atendimento-perfume">Sim</span></a></li>
+                                <li><a class="dropdown-item more-info-item title-color-secundary bold" href="#">Responsável: <span class="atendimento-responsavel">Guilherme</span></a></li>
+                                <li><a class="dropdown-item more-info-item title-color-secundary bold" href="#">Observação: <span class="atendimento-obs">Agitada</span></a></li>
+                            </ul>
+                        </h3>
+                    </div>
+                    <img src="../../assets/img/escrita.png" alt="ícone de edição do Pet" class="img-edicao">
+                </div>
+            </div>
         </section>
     </main>
 
