@@ -45,16 +45,6 @@ body {
   --bs-dropdown-link-hover-bg: #1b4532;
 }
 
-.dropdown-item {
-  color: #fff;
-}
-
-.dropdown-item:hover {
-  background-color: var(--bs-dropdown-bg);
-  color: #fff;
-  font-weight: 500;
-}
-
 main {
   display: flex;
   align-items: center;
@@ -70,6 +60,21 @@ main {
 
 h1 {
   margin-bottom: 2rem;
+}
+
+#dogImagePreview {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 20px 0;
+}
+
+.previewImagem{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 form {
@@ -136,13 +141,6 @@ form {
   border-color: #4c866b;
   transition: .5s;
   color: #eaf1ef;
-}
-
-.pet-foto {
-  border-radius: 12px;
-  width: 13rem;
-  height: auto;
-  display: none;
 }
 
 label {
