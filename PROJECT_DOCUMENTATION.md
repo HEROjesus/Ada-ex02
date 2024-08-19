@@ -69,14 +69,20 @@ Para garantir a consistência visual e a identidade da marca, utilizamos as segu
 ### Desenvolvedores
 
 - **Rafael de Jesus** ([Github](<https://github.com/HEROjesus>)) - Desenvolvedor Front-End
+
 - **Guilherme Fermino** ([Github](<https://github.com/guifermino7>)) - Desenvolvedor Front-End
+
+- **Jonathan Costa** ([Github](<github.com/k3nn0b1>))  - Desenvolvedor Front-End
+
 - **Jorge de Aquino** ([Github](<https://github.com/JorgeDeAquino>))  - Desenvolvedor Front-End
+
 - **Juliana Guimarães** ([Github](<https://github.com/julianagandrade>))  - Desenvolvedor Front-End
+
 
 
 ### Design
 
-- **Jonathan**  - Designer UI/UX
+- **Jonathan Costa**  - Designer UI/UX
 
 
 ## Histórico de Versões
