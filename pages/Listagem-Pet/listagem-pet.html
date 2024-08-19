@@ -19,34 +19,26 @@
             </a>
             <div class="d-flex gap-1">
                 <div class="dropdown">
-                  <button
-                    class="btn btn-secondary dropdown-toggle"
-                    type="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    Cadastro
-                  </button>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="../Cadastro-Pet/index.html">Pets</a></li>
-                    <li><a class="dropdown-item" href="../Cadastro-Atendimento/index.html">Atendimentos</a></li>
-                  </ul>
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Cadastro
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="../Cadastro-Pet/index.html">Pets</a></li>
+                        <li><a class="dropdown-item" href="../Cadastro-Atendimento/index.html">Atendimentos</a></li>
+                    </ul>
                 </div>
                 <div class="dropdown">
-                  <button
-                    class="btn btn-secondary dropdown-toggle"
-                    type="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    Listagem
-                  </button>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="../Listagem-Pet/listagem-pet.html">Pets</a></li>
-                    <li><a class="dropdown-item" href="#">Atendimentos</a></li>
-                  </ul>
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Listagem
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="../Listagem-Pet/listagem-pet.html">Pets</a></li>
+                        <li><a class="dropdown-item" href="#">Atendimentos</a></li>
+                    </ul>
                 </div>
-              </div>
+            </div>
         </nav>
     </header>
 
@@ -87,28 +79,27 @@
             petCard.classList.add('col');
 
             petCard.innerHTML = `
-            <div class="card h-100 flex-row align-items-center p-2 info-background-color">
-                <img src="https://www.petlove.com.br/images/breeds/193103/profile/original/pastor_alemao-p.jpg?1532539270"
-                    class="img-pet rounded-circle" alt="...">
-                <div class="card-body d-flex flex-column">
-                    <h3>Nome: <span class="pet-nome">${pet.petName}</span></h3>
-                    <h3>Tutor(a): <span class="pet-tutor">${pet.ownerName}</span></h3>
-                    <h3>
-                        <a class="nav-link dropdown-toggle more-info" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Mais informações
-                        </a>
-                        <ul class="dropdown-menu moreinfo-background-color">
-                            <li><a class="dropdown-item more-info-item title-color-secundary bold" href="#">Apelido: <span class="pet-apelido">${pet.petNickname}</span></a></li>
-                            <li><a class="dropdown-item more-info-item title-color-secundary bold" href="#">Raça: <span class="pet-raca">${pet.breed}</span></a></li>
-                            <li><a class="dropdown-item more-info-item title-color-secundary bold" href="#">Porte: <span class="pet-porte">${pet.petSize}</span></a></li>
-                            <li><a class="dropdown-item more-info-item title-color-secundary bold" href="#">Idade: <span class="pet-idade">${calculateAge(pet.birthdate)} anos</span></a></li>
-                            <li><a class="dropdown-item more-info-item title-color-secundary bold" href="#">Perfume: <span class="pet-perfume">Sim</span></a></li>
-                        </ul>
-                    </h3>
-                </div>
-                <img src="../../assets/img/escrita.png" alt="ícone de edição do Pet" class="img-edicao" onclick="editarCachorro('${pet.id}')">
+        <div class="card h-100 flex-row align-items-center p-2 info-background-color">
+            <img src="${pet.dogImage}" class="img-pet rounded-circle" alt="Imagem do Pet">
+            <div class="card-body d-flex flex-column">
+                <h3>Nome: <span class="pet-nome">${pet.petName}</span></h3>
+                <h3>Tutor(a): <span class="pet-tutor">${pet.ownerName}</span></h3>
+                <h3>
+                    <a class="nav-link dropdown-toggle more-info" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Mais informações
+                    </a>
+                    <ul class="dropdown-menu moreinfo-background-color">
+                        <li><a class="dropdown-item more-info-item title-color-secundary bold" href="#">Apelido: <span class="pet-apelido">${pet.petNickname}</span></a></li>
+                        <li><a class="dropdown-item more-info-item title-color-secundary bold" href="#">Raça: <span class="pet-raca">${pet.breed}</span></a></li>
+                        <li><a class="dropdown-item more-info-item title-color-secundary bold" href="#">Porte: <span class="pet-porte">${pet.petSize}</span></a></li>
+                        <li><a class="dropdown-item more-info-item title-color-secundary bold" href="#">Idade: <span class="pet-idade">${calculateAge(pet.birthdate)} anos</span></a></li>
+                        <li><a class="dropdown-item more-info-item title-color-secundary bold" href="#">Perfume: <span class="pet-perfume">Sim</span></a></li>
+                    </ul>
+                </h3>
             </div>
-        `;
+            <img src="../../assets/img/escrita.png" alt="ícone de edição do Pet" class="img-edicao" onclick="editarCachorro('${pet.id}')">
+        </div>
+    `;
 
             // Adiciona o cartão à seção
             petListSection.appendChild(petCard);
@@ -125,4 +116,4 @@
     }
 </script>
 
-</html> 
+</html>
