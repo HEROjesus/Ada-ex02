@@ -114,10 +114,12 @@ li {
 }
 
 .pet-nome,
+.pet-tutor,
 .atendimento-tipo,
 .atendimento-status,
 .atendimento-perfume,
 .atendimento-responsavel,
+.atendimento-horario,
 .atendimento-obs {
     font-weight: initial;
 }
