@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem dos Atendimentos</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="../Listagem-Atendimento/styles/listagem-atendimento.css">
+</head>
+
+<body>
+    <header class="navbar bg-body-primary align-items-center" id="navegacao">
+        <nav class="container d-flex justify-content-space-between">
+            <a class="navbar-brand" href="../Cadastro-Pet/index.html">
+                <img src="../../assets/img/logoPetshop.png" alt="Ada Petshop" />
+            </a>
+            <div class="d-flex gap-1">
+                <div class="dropdown">
+                  <button
+                    class="btn btn-secondary dropdown-toggle"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Cadastro
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="../Cadastro-Pet/index.html">Pets</a></li>
+                    <li><a class="dropdown-item" href="../Cadastro-Atendimento/index.html">Atendimentos</a></li>
+                  </ul>
+                </div>
+                <div class="dropdown">
+                  <button
+                    class="btn btn-secondary dropdown-toggle"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Listagem
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="../Listagem-Pet/listagem-pet.html">Pets</a></li>
+                    <li><a class="dropdown-item" href="#">Atendimentos</a></li>
+                  </ul>
+                </div>
+              </div>
+        </nav>
+    </header>
+
+    <main class="container d-flex flex-column">
+        <div class="d-flex justify-content-center mb-2">
+            <h1>Listagem de Pet</h1>
+        </div>
+        <section class="row row-cols-1 row-cols-md-3 g-4">
+            <!-- Os cartões de pet serão gerados aqui -->
+        </section>
+    </main>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
+</html> 
