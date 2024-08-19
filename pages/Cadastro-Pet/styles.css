@@ -121,6 +121,12 @@ form {
   color: #fff;
 }
 
+.dropdown-item:hover {
+  background-color: var(--bs-dropdown-bg);
+  color: #fff;
+  font-weight: 500;
+}
+
 #principal {
   display: flex;
   flex-direction: column;
