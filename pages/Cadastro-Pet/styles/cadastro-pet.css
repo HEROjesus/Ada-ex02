@@ -16,7 +16,6 @@ body {
   background-color: #8DC8B2;
 }
 
-
 .btn-check:checked+.btn,
 .btn.active,
 .btn.show,
@@ -63,8 +62,9 @@ h1 {
 }
 
 #dogImagePreview {
-  width: 150px;
-  height: 150px;
+  display: none;
+  width: 15rem;
+  height: 15rem;
   border-radius: 50%;
   object-fit: cover;
   margin: 20px 0;
