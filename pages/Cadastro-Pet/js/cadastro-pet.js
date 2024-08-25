@@ -49,12 +49,17 @@ function obterValorParametroURL(parametro) {
 document.addEventListener('DOMContentLoaded', function () {
     const urlParams = new URLSearchParams(window.location.search);
     const petId = urlParams.get('idCachorro');
+    const submitButton = document.getElementById('cadastrar');
 
     if (petId) {
         document.title = "Edição de Pet";
         const pageTitle = document.querySelector('h1');
         if (pageTitle) {
             pageTitle.textContent = "Edição de Pet";
+        }
+
+        if (submitButton) {
+            submitButton.textContent = "Atualizar Pet";
         }
 
         const pets = JSON.parse(localStorage.getItem('pets')) || [];
