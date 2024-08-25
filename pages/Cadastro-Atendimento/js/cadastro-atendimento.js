@@ -1,9 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     const petListElement = document.getElementById('pet-list');
-
     const serviceCheckboxes = document.querySelectorAll('input[name="services"]');
-
     const pets = JSON.parse(localStorage.getItem('pets')) || [];
+    const atendimentos = JSON.parse(localStorage.getItem('atendimentos')) || [];
+    const form = document.querySelector('form');
+    const submitButton = document.getElementById('enviar');
 
     pets.forEach(pet => {
         const option = document.createElement('option');
@@ -11,19 +12,15 @@ document.addEventListener('DOMContentLoaded', () => {
         petListElement.appendChild(option);
     });
 
-    const form = document.querySelector('form');
-
     document.getElementById('pet-search').addEventListener('input', function () {
         const petName = this.value;
         const pet = pets.find(p => p.petName === petName);
-
         if (pet) {
             document.getElementById('atendimento-responsavel').value = pet.ownerName;
         }
     });
 
     const urlParams = new URLSearchParams(window.location.search);
-
     const petId = urlParams.get('petId');
 
     if (petId) {
@@ -33,23 +30,34 @@ document.addEventListener('DOMContentLoaded', () => {
             pageTitle.textContent = "Edição de Atendimento";
         }
 
-        const pet = pets.find(p => p.id === petId);
+        // Muda o texto do botão para "Atualizar Atendimento"
+        if (submitButton) {
+            submitButton.value = "Atualizar Atendimento";
+        }
 
-        if (pet) {
-            document.getElementById('pet-search').value = pet.petName;
-            document.getElementById('atendimento-responsavel').value = pet.ownerName;
+        const atendimentoExistente = atendimentos.find(a => a.petId === petId);
+        if (atendimentoExistente) {
+            document.getElementById('pet-search').value = atendimentoExistente.petName;
+            document.getElementById('atendimento-responsavel').value = atendimentoExistente.responsavel;
+            document.getElementById('atendimento-horario').value = atendimentoExistente.horario;
 
-            pet.services.forEach(service => {
+            atendimentoExistente.services.forEach(service => {
                 const checkbox = document.querySelector(`input[name="services"][value="${service}"]`);
                 if (checkbox) {
                     checkbox.checked = true;
                 }
             });
 
-            const perfumeRadio = document.querySelector(`input[name="perfume"][value="${pet.perfume}"]`);
+            const perfumeRadio = document.querySelector(`input[name="perfume"][value="${atendimentoExistente.perfume}"]`);
             if (perfumeRadio) {
                 perfumeRadio.checked = true;
             }
+        }
+
+        const pet = pets.find(p => p.id === petId);
+        if (pet) {
+            document.getElementById('pet-search').value = pet.petName;
+            document.getElementById('atendimento-responsavel').value = pet.ownerName;
         }
     }
 
@@ -62,7 +70,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const responsavel = document.getElementById('atendimento-responsavel').value;
         const horario = document.getElementById('atendimento-horario').value;
 
-        const atendimento = {
+        const novoAtendimento = {
+            petId: petId || gerarIdUnico(),
             petName,
             services,
             perfume,
@@ -70,17 +79,24 @@ document.addEventListener('DOMContentLoaded', () => {
             horario
         };
 
-        const atendimentos = JSON.parse(localStorage.getItem('atendimentos')) || [];
-
-        atendimentos.push(atendimento);
+        if (petId) {
+            const index = atendimentos.findIndex(a => a.petId === petId);
+            if (index !== -1) {
+                atendimentos[index] = novoAtendimento;
+            }
+            alert('Atendimento atualizado com sucesso!');
+        } else {
+            atendimentos.push(novoAtendimento);
+            alert('Atendimento cadastrado com sucesso!');
+        }
 
         localStorage.setItem('atendimentos', JSON.stringify(atendimentos));
-
-        alert('Atendimento cadastrado com sucesso!');
-
         form.reset();
-
         serviceCheckboxes.forEach(checkbox => checkbox.checked = false);
         document.querySelector('input[name="perfume"][value="Não"]').checked = true;
     });
+
+    function gerarIdUnico() {
+        return "_" + Math.random().toString(36).substr(2, 9);
+    }
 });

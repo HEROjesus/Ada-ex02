@@ -46,7 +46,7 @@
   <div class="container justify-content-center">
     <main class="d-flex flex-column gap-2 align-items-center p-5">
       <h1>Cadastro de Atendimento</h1>
-      <form class="d-flex flex-column align-items-center gap-2" action="/submit" method="post">
+      <form class="d-flex flex-column align-items-center gap-2" id="atendimento-form">
 
         <label class="mt-4" for="pet-search">
           <h3>Selecionar Pet</h3>
@@ -79,11 +79,11 @@
         <div class="infos-escritas d-flex flex-column m-4">
           <label for="atendimento-responsavel" class="bold">Nome do(a) responsável:</label>
           <input type="text" class="form-control" id="atendimento-responsavel" name="atendimento-responsavel"
-            placeholder="Digite o nome..." />
+            placeholder="Digite o nome..." required />
           <br>
-          <label for="atendimento-horario" class="bold">Horario:</label>
-          <input type="text" class="form-control" id="atendimento-horario" name="horario"
-            placeholder="21/08/24 - 16:00" />
+          <label for="atendimento-horario" class="bold">Horário:</label>
+          <input type="text" class="form-control" id="atendimento-horario" name="horario" placeholder="21/08/24 - 16:00"
+            required />
         </div>
 
         <input type="submit" id="enviar" class="btn mt-4 " value="Marcar Atendimento">
@@ -96,10 +96,9 @@
     </main>
   </div>
 
+  <script src="../Cadastro-Atendimento/js/cadastro-atendimento.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
-
-  <script src="../Cadastro-Atendimento/js/cadastro-atendimento.js"></script>
 </body>
 </html>
