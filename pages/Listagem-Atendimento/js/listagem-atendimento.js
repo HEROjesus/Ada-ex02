@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const section = document.querySelector("section.row");
 
-    atendimentos.forEach((atendimento) => {
+    atendimentos.forEach((atendimento, index) => {
         const petEncontrado = pets.find((pet) => pet.petName === atendimento.petName);
 
         const observacaoPet = petEncontrado ? petEncontrado.observations : "Sem observações";
@@ -39,11 +39,21 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="icones d-flex flex-column align-items-center m-1">
           <img src="../../assets/img/edicao-atendimento.png" alt="ícone de edição do Pet" class="img-edicao mb-3" onclick="window.location.href='../Cadastro-Atendimento/cadastro-atendimento.html?petId=${petEncontrado.id}'">
           <img src="../../assets/img/check-atenedimento.png" alt="ícone de check no atendimento do Pet" class="img-status mt-3">
-          <img src="../../assets/img/remove-atendimento.png" alt="ícone de remoção do atendimento do Pet" class="img-status mt-3">
+          <img src="../../assets/img/remove-atendimento.png" alt="ícone de remoção do atendimento do Pet" class="img-status mt-3" data-index="${index}" onclick="removeAtendimento(${index})">
         </div>
         </div>
       `;
 
         section.appendChild(card);
     });
+
+    window.removeAtendimento = function(index) {
+        atendimentos.splice(index, 1);
+
+        localStorage.setItem('atendimentos', JSON.stringify(atendimentos));
+
+        document.querySelector(`img[data-index="${index}"]`).closest('.col').remove();
+
+        alert('Atendimento removido com sucesso!');
+    }
 });
