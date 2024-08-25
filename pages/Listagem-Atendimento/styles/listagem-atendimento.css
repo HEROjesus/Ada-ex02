@@ -11,7 +11,7 @@
     margin: 0;
 }
 
-h1{
+h1 {
     color: #5ca383;
 }
 
@@ -87,7 +87,8 @@ h2 {
     font-weight: 550;
 }
 
-h3 {
+h3,
+.h3 {
     font-size: 1rem;
     font-weight: bold;
     color: var(--title-color-secundary);
@@ -136,15 +137,24 @@ li {
     transition: 0.3s ease-in-out
 }
 
+.img-status {
+    height: 1.7rem;
+}
+
 .more-info:hover {
-    font-size: 1.05rem;
+    color: #4c866b;
     transition: 0.3s ease-in-out;
 }
 
 .img-edicao:hover {
-    height: 2.4rem;
-    width: 2.4rem;
-    transition: 0.3s ease-out;
+    height: 2.35rem;
+    width: 2.35rem;
+    transition: 0.2s ease-out;
+}
+
+.img-status:hover {
+    height: 1.9rem;
+    transition: 0.2s ease-out;
 }
 
 .more-info-item:hover {
