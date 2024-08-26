@@ -1,6 +1,23 @@
 $(document).ready(function () {
     $("#phoneNumber").mask("(00) 00000-0000");
 
+    function ajustarPaginaParaEdicao() {
+        const petId = obterValorParametroURL('idCachorro');
+        if (petId) {
+            document.title = "Edição de Pet";
+            
+            const pageTitle = document.querySelector('h1');
+            if (pageTitle) {
+                pageTitle.textContent = "Edição de Pet";
+            }
+
+            const submitButton = document.getElementById('cadastrar');
+            if (submitButton) {
+                submitButton.textContent = "Editar Pet";
+            }
+        }
+    }
+
     fetchRacas().then(() => {
         const petId = obterValorParametroURL('idCachorro');
         if (petId) {
@@ -9,6 +26,8 @@ $(document).ready(function () {
     });
 
     $('#breed').change(selecionarRaca);
+
+    ajustarPaginaParaEdicao();
 });
 
 async function fetchRacas() {
