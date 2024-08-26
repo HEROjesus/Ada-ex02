@@ -1,7 +1,40 @@
 $(document).ready(function () {
     $("#phoneNumber").mask("(00) 00000-0000");
 
+    fetchRacas().then(() => {
+        const petId = obterValorParametroURL('idCachorro');
+        if (petId) {
+            preencherCamposEdicao(petId);
+        }
+    });
+
+    $('#breed').change(selecionarRaca);
 });
+
+async function fetchRacas() {
+    const racaSelecionada = document.getElementById('breed');
+
+    try {
+        const response = await fetch('https://dog.ceo/api/breeds/list/all');
+        const data = await response.json();
+
+        if (data.status === 'success') {
+            const racas = data.message;
+
+            for (const raca in racas) {
+                const option = document.createElement('option');
+                option.value = raca;
+                option.text = raca;
+                racaSelecionada.appendChild(option);
+            }
+        } else {
+            console.error('Erro na busca');
+        }
+
+    } catch (error) {
+        console.error('Erro ao buscar raças:', error);
+    }
+}
 
 async function selecionarRaca() {
     const racaSelecionada = document.getElementById('breed').value;
@@ -12,7 +45,7 @@ async function selecionarRaca() {
             const data = await response.json();
 
             if (data.status === 'success') {
-                dogImagem = data.message;
+                const dogImagem = data.message;
                 exibirImagemDog(dogImagem);
             } else {
                 console.error('Erro ao obter a imagem da raça');
@@ -46,42 +79,24 @@ function obterValorParametroURL(parametro) {
     return urlParams.get(parametro);
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-    const urlParams = new URLSearchParams(window.location.search);
-    const petId = urlParams.get('idCachorro');
-    const submitButton = document.getElementById('cadastrar');
+function preencherCamposEdicao(petId) {
+    const pets = JSON.parse(localStorage.getItem('pets')) || [];
+    const pet = pets.find(p => p.id === petId);
 
-    if (petId) {
-        document.title = "Edição de Pet";
-        const pageTitle = document.querySelector('h1');
-        if (pageTitle) {
-            pageTitle.textContent = "Edição de Pet";
-        }
-
-        if (submitButton) {
-            submitButton.textContent = "Atualizar Pet";
-        }
-
-        const pets = JSON.parse(localStorage.getItem('pets')) || [];
-        const pet = pets.find(p => p.id === petId);
-
-        if (pet) {
-            document.getElementById('petName').value = pet.petName;
-            document.getElementById('ownerName').value = pet.ownerName;
-            document.getElementById('petNickname').value = pet.petNickname;
-            document.getElementById('breed').value = pet.breed;
-            document.getElementById('petSize').value = pet.petSize;
-            document.getElementById('birthdate').value = pet.birthdate;
-            document.getElementById("petSize").value = pet.petSize;
-            document.getElementById("coatType").value = pet.coatType;
-            document.getElementById("breed").value = pet.breed;
-            document.getElementById("ownerName").value = pet.ownerName;
-            document.getElementById("phoneNumber").value = pet.phoneNumber;
-            document.getElementById("email").value = pet.email;
-            document.getElementById("observations").value = pet.observations;
-        }
+    if (pet) {
+        document.getElementById('petName').value = pet.petName;
+        document.getElementById('ownerName').value = pet.ownerName;
+        document.getElementById('petNickname').value = pet.petNickname;
+        document.getElementById('petSize').value = pet.petSize;
+        document.getElementById('birthdate').value = pet.birthdate;
+        document.getElementById("coatType").value = pet.coatType;
+        document.getElementById("breed").value = pet.breed;
+        selecionarRaca();
+        document.getElementById("phoneNumber").value = pet.phoneNumber;
+        document.getElementById("email").value = pet.email;
+        document.getElementById("observations").value = pet.observations;
     }
-});
+}
 
 function enviar() {
     const petName = document.getElementById("petName").value;
@@ -138,30 +153,3 @@ function atualizarPet(petAtualizado) {
     );
     localStorage.setItem("pets", JSON.stringify(pets));
 }
-
-async function fetchRacas() {
-    const racaSelecionada = document.getElementById('breed')
-
-    try {
-        const response = await fetch('https://dog.ceo/api/breeds/list/all')
-        const data = await response.json()
-
-        if (data.status === 'success') {
-            const racas = data.message
-
-            for (const raca in racas) {
-                const option = document.createElement('option')
-                option.value = raca
-                option.text = raca
-                racaSelecionada.appendChild(option)
-            }
-        } else {
-            console.error('Erro na busca')
-        }
-
-    } catch (error) {
-        console.error('Erro aqui:', error)
-    }
-}
-
-document.addEventListener('DOMContentLoaded', fetchRacas);
