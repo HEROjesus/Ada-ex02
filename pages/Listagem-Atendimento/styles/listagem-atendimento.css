@@ -4,6 +4,9 @@
     --text-color-primary: #84BDA8;
     --info-background-color: #E6F8F1;
     --moreinfo-background-color: #fff;
+    --status-color-agendado: darkblue;
+    --status-color-andamento: goldenrod;
+    --status-color-finalizado: greenyellow;
 }
 
 * {
@@ -12,7 +15,7 @@
 }
 
 h1 {
-    color: #5ca383;
+    color: rgb(92, 163, 131);
 }
 
 .btn-secondary {
@@ -139,6 +142,11 @@ li {
 
 .img-status {
     height: 1.7rem;
+}
+
+.atendimento-status {
+    color: var(--status-color-agendado);
+    font-weight: 500;
 }
 
 .more-info:hover {

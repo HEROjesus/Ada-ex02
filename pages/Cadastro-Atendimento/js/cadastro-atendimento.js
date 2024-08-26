@@ -1,8 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     const petListElement = document.getElementById('pet-list');
     const serviceCheckboxes = document.querySelectorAll('input[name="services"]');
+
     const pets = JSON.parse(localStorage.getItem('pets')) || [];
     const atendimentos = JSON.parse(localStorage.getItem('atendimentos')) || [];
+    
     const form = document.querySelector('form');
     const submitButton = document.getElementById('enviar');
 
@@ -30,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
             pageTitle.textContent = "Edição de Atendimento";
         }
 
-        // Muda o texto do botão para "Atualizar Atendimento"
         if (submitButton) {
             submitButton.value = "Atualizar Atendimento";
         }

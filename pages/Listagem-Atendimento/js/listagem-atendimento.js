@@ -1,9 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     const atendimentos = JSON.parse(localStorage.getItem("atendimentos")) || [];
-
     const pets = JSON.parse(localStorage.getItem("pets")) || [];
-
     const section = document.querySelector("section.row");
 
     atendimentos.forEach((atendimento, index) => {
@@ -23,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <h3>Nome: <span class="pet-nome">${atendimento.petName}</span></h3>
                 <h3>Tutor: <span class="pet-tutor">${tutorPet}</span></h3>
                 <h3>Serviço: <span class="atendimento-tipo">${atendimento.services.join(", ")}</span></h3>
-                <h3>Status: <span class="atendimento-status">Em andamento</span></h3>
+                <h3>Status: <span class="atendimento-status">Agendado</span></h3>
                 <div class="h3">
                     <a class="nav-link dropdown-toggle more-info" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Mais informações
@@ -37,23 +35,43 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
             </div>
             <div class="icones d-flex flex-column align-items-center m-1">
-          <img src="../../assets/img/edicao-atendimento.png" alt="ícone de edição do Pet" class="img-edicao mb-3" onclick="window.location.href='../Cadastro-Atendimento/cadastro-atendimento.html?petId=${petEncontrado.id}'">
-          <img src="../../assets/img/check-atenedimento.png" alt="ícone de check no atendimento do Pet" class="img-status mt-3">
-          <img src="../../assets/img/remove-atendimento.png" alt="ícone de remoção do atendimento do Pet" class="img-status mt-3" data-index="${index}" onclick="removeAtendimento(${index})">
-        </div>
+                <img src="../../assets/img/edicao-atendimento.png" alt="ícone de edição do Pet" class="img-edicao mb-3" onclick="window.location.href='../Cadastro-Atendimento/cadastro-atendimento.html?petId=${petEncontrado.id}'">
+                <img src="../../assets/img/check-atenedimento.png" alt="ícone de check no atendimento do Pet" class="img-status mt-3" onclick="updateStatus(${index})">
+                <img src="../../assets/img/remove-atendimento.png" alt="ícone de remoção do atendimento do Pet" class="img-status mt-3" onclick="removeAtendimento(${index})">
+            </div>
         </div>
       `;
 
         section.appendChild(card);
     });
 
+    window.updateStatus = function(index) {
+        const statusElement = document.querySelectorAll(".atendimento-status")[index];
+
+        if (statusElement.textContent === "Agendado") {
+            statusElement.textContent = "Em atendimento";
+            statusElement.style.color = "var(--status-color-andamento)";
+        } else if (statusElement.textContent === "Em atendimento") {
+            alert("Atendido com sucesso!");
+
+            atendimentos.splice(index, 1);
+
+            localStorage.setItem("atendimentos", JSON.stringify(atendimentos));
+
+            document.querySelector(`.col:nth-child(${index + 1})`).remove();
+        }
+
+        atendimentos[index].status = statusElement.textContent;
+        localStorage.setItem('atendimentos', JSON.stringify(atendimentos));
+    }
+
     window.removeAtendimento = function(index) {
         atendimentos.splice(index, 1);
 
-        localStorage.setItem('atendimentos', JSON.stringify(atendimentos));
+        localStorage.setItem("atendimentos", JSON.stringify(atendimentos));
 
-        document.querySelector(`img[data-index="${index}"]`).closest('.col').remove();
+        document.querySelector(`.col:nth-child(${index + 1})`).remove();
 
-        alert('Atendimento removido com sucesso!');
+        alert("Atendimento removido com sucesso!");
     }
 });
